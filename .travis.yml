@@ -15,7 +15,7 @@ install:
   
 script: 
   - nosetests --exclude-dir=generator
-  - coverage run --source=pyidf --omit='*/generator/*,*/tests/*' -m nose --exclude test_class
+  - coverage run --source=design_nest --omit='*/generator/*,*/tests/*' -m nose --exclude test_class
 
 after_success:
   - coveralls

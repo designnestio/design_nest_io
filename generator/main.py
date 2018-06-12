@@ -1,19 +1,9 @@
 import multiprocessing
 import Queue
 
+from generator import generate_class, generate_group
+
 version = "0.1.0"
-
-model = {
-    'simulation_control':[
-        
-    ]
-    'location': [
-
-    ],
-    'climate': [
-
-    ]
-}
 
 
 def worker(q, worker):

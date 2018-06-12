@@ -11,4 +11,4 @@ setup(name='designnest',
       license='Apache License 2.0',
       classifiers=['Development Status :: 3 - Alpha'],
       packages=['design_nest'],
-      keywords=['EnergyPlus', 'IDF'])
+      keywords=['EnergyPlus', 'epJSON', 'Load Calculation'])
