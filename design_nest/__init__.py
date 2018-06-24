@@ -1,4 +1,4 @@
-""" Python library to generate building analysis models
+""" Python library which allows to read, modify, create and run EnergyPlus files and simulations.
     Author: designnest.io
     License: Apache License 2.0
 """
@@ -11,17 +11,3 @@ __version__ = "0.1.0"
 __maintainer__ = "designnest.io"
 __email__ = "designnestio@gmail.com"
 __status__ = "Development"
-
-
-class ValidationLevel(object):
-    """ Validation levels:
-        - no: no validation
-        - warn: issue warnings
-        - transition: try to transition values to follow specification
-        - error: raise exceptions when values are not according specification"""
-    no = "no"
-    warn = "warm"
-    transition = "transition"
-    error = "error"
-
-validation_level = ValidationLevel.transition
