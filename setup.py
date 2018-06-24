@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 from design_nest import __version__
 
 with open("README.md", "r") as fh:
@@ -10,7 +10,6 @@ setup(name='design_nest',
       long_description=long_description,
       long_description_content_type="text/markdown",
       url='https://github.com/designnestio/design_nest_io',
-      download_url=f'{__version__}',
       author='https://designnest.io',
       author_email='designnestio@gmail.com',
       license='Apache License 2.0',
@@ -18,5 +17,5 @@ setup(name='design_nest',
             'Development Status :: 3 - Alpha',
             "Operating System :: OS Independent",
       ),
-      packages=['design_nest'],
+      packages=find_packages(),
       keywords=['EnergyPlus', 'epJSON'])
