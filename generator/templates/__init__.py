@@ -1,4 +1,4 @@
-""" Python library to generate building analysis models
+""" {{ description }}
     Author: designnest.io
     License: Apache License 2.0
 """
@@ -11,17 +11,3 @@ __version__ = "{{ version }}"
 __maintainer__ = "designnest.io"
 __email__ = "designnestio@gmail.com"
 __status__ = "Development"
-
-
-class ValidationLevel(object):
-    """ Validation levels:
-        - no: no validation
-        - warn: issue warnings
-        - transition: try to transition values to follow specification
-        - error: raise exceptions when values are not according specification"""
-    no = "no"
-    warn = "warm"
-    transition = "transition"
-    error = "error"
-
-validation_level = ValidationLevel.transition

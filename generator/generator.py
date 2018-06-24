@@ -7,26 +7,34 @@ env = Environment(loader=PackageLoader('generator', 'templates'))
 def generate_class(obj):
     template = env.get_template('class.py')
 
-    required_fields = []
-    for field in obj.fields:
-        if "required-field" in field.attributes:
-            required_fields.append('"{}"'.format(field.internal_name))
-
-    obj.schema = pprint.pformat(obj.schema)
-    context = {}
-    context["obj"] = obj
-    context["required_fields"] = ", ".join(required_fields)
-
+    context = {"obj": obj}
     return template.render(context)
 
 
-def generate_group(groupname, sources):
+def generate_group(group_name, sources):
     template = env.get_template('group.py')
-    context = {}
-    context["sources"] = sources
-    context["group"] = groupname
+
+    context = {"sources": sources, "group": group_name}
     return template.render(context)
-    
+
+
+def generate_model(objs):
+    source_files = set()
+    required_objects = set()
+    unique_objects = set()
+    for obj in objs:
+        source_files.add(obj.file_name)
+        if "required-object" in obj.attributes:
+            required_objects.add('"{}"'.format(obj.internal_name.lower()))
+
+        if "unique-object" in obj.attributes:
+            unique_objects.add('"{}"'.format(obj.internal_name.lower()))
+
+    template = env.get_template('idf.py')
+    context = {"generation_date": date.today(), "objs": objs, "file_names": list(source_files),
+               "required_objects": ", ".join(required_objects), "unique_objects": ", ".join(unique_objects)}
+    return template.render(context)
+
 
 if __name__ == '__main__':
     pass
