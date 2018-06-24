@@ -108,38 +108,6 @@ class SimulationControl(BaseObject):
 
 
 
-class SurfaceConvectionAlgorithmOutside(BaseObject):
-    """Corresponds to object `SurfaceConvectionAlgorithm:Outside`"""
-    _schema = {
-        'format': 'singleLine',
-        'patternProperties': {
-            '.*': {
-                'type': 'object',
-                'properties': {
-                    'algorithm': {
-                        'default': 'DOE-2',
-                        'enum': [
-                            '',
-                            'AdaptiveConvectionAlgorithm',
-                            'DOE-2',
-                            'MoWiTT',
-                            'SimpleCombined',
-                            'TARP'],
-                        'type': 'string'}}}},
-        'maxProperties': 1,
-        'type': 'object'}
-
-    @property
-    def algorithm(self):
-        return self["algorithm"]
-
-    @algorithm.setter
-    def algorithm(self, value=None):
-        self["algorithm"] = value
-
-
-
-
 class GlobalGeometryRules(BaseObject):
     """Corresponds to object `GlobalGeometryRules`"""
     _schema = {
