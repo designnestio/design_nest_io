@@ -12,13 +12,13 @@ from settings import Settings
 env = Environment(loader=PackageLoader('generator', 'templates'))
 
 
-def remove_memo_and_notes(schema):
+def clean_schema(schema):
     if not isinstance(schema, (dict, list)):
         return schema
     if isinstance(schema, list):
-        return [remove_memo_and_notes(v) for v in schema]
-    return {k: remove_memo_and_notes(v) for k, v in schema.items()
-            if k not in {'memo', 'note'}}
+        return [clean_schema(v) for v in schema]
+    return {k: clean_schema(v) for k, v in schema.items()
+            if k not in {'memo', 'note', 'legacy_idd'}}
 
 
 def create_file(group, objs):
@@ -39,9 +39,9 @@ def create_file(group, objs):
 
 if __name__ == '__main__':
     
-    with open(os.path.join(os.path.dirname(__file__), "schema", "eplus_8.9_schema_trimmed.json")) as f:
+    with open(os.path.join(os.path.dirname(__file__), "schema", "eplus_8.9_schema.json")) as f:
         schema = json.load(f)
-        schema = remove_memo_and_notes(schema)
+        schema = clean_schema(schema)
 
     objs = []
     # gplus_component file generation
