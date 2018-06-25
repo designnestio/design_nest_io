@@ -156,7 +156,9 @@ class People(BaseObject):
                         'object_list': ['ScheduleNames'],
                         'data_type': 'object_list'}},
                 'type': 'object'}},
-        'type': 'object'}
+        'type': 'object',
+        'eplus_name': 'People',
+        'group': 'internal_gains'}
 
     @property
     def thermal_comfort_model_5_type(self):
@@ -433,7 +435,9 @@ class Lights(BaseObject):
                         'type': 'number',
                         'maximum': 1.0}},
                 'type': 'object'}},
-        'type': 'object'}
+        'type': 'object',
+        'eplus_name': 'Lights',
+        'group': 'internal_gains'}
 
     @property
     def return_air_heat_gain_node_name(self):
@@ -626,7 +630,9 @@ class ElectricEquipment(BaseObject):
                         'type': 'number',
                         'maximum': 1.0}},
                 'type': 'object'}},
-        'type': 'object'}
+        'type': 'object',
+        'eplus_name': 'ElectricEquipment',
+        'group': 'internal_gains'}
 
     @property
     def zone_or_zonelist_name(self):

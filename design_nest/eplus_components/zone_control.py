@@ -76,7 +76,9 @@ class ZoneControlThermostat(BaseObject):
         'name': {
             'is_required': True,
             'type': 'string',
-            'reference': ['ZoneControlThermostaticNames']}}
+            'reference': ['ZoneControlThermostaticNames']},
+        'eplus_name': 'ZoneControl:Thermostat',
+        'group': 'zone_control'}
 
     @property
     def control_2_name(self):
@@ -184,7 +186,9 @@ class ThermostatSetpointSingleHeating(BaseObject):
         'name': {
             'is_required': True,
             'type': 'string',
-            'reference': ['ControlTypeNames']}}
+            'reference': ['ControlTypeNames']},
+        'eplus_name': 'ThermostatSetpoint:SingleHeating',
+        'group': 'zone_control'}
 
     @property
     def setpoint_temperature_schedule_name(self):
@@ -212,7 +216,9 @@ class ThermostatSetpointSingleCooling(BaseObject):
         'name': {
             'is_required': True,
             'type': 'string',
-            'reference': ['ControlTypeNames']}}
+            'reference': ['ControlTypeNames']},
+        'eplus_name': 'ThermostatSetpoint:SingleCooling',
+        'group': 'zone_control'}
 
     @property
     def setpoint_temperature_schedule_name(self):
@@ -240,7 +246,9 @@ class ThermostatSetpointSingleHeatingOrCooling(BaseObject):
         'name': {
             'is_required': True,
             'type': 'string',
-            'reference': ['ControlTypeNames']}}
+            'reference': ['ControlTypeNames']},
+        'eplus_name': 'ThermostatSetpoint:SingleHeatingOrCooling',
+        'group': 'zone_control'}
 
     @property
     def setpoint_temperature_schedule_name(self):
@@ -272,7 +280,9 @@ class ThermostatSetpointDualSetpoint(BaseObject):
         'name': {
             'is_required': True,
             'type': 'string',
-            'reference': ['ControlTypeNames']}}
+            'reference': ['ControlTypeNames']},
+        'eplus_name': 'ThermostatSetpoint:DualSetpoint',
+        'group': 'zone_control'}
 
     @property
     def heating_setpoint_temperature_schedule_name(self):

@@ -44,7 +44,9 @@ class ScheduleTypeLimits(BaseObject):
         'name': {
             'is_required': True,
             'type': 'string',
-            'reference': ['ScheduleTypeLimitsNames']}}
+            'reference': ['ScheduleTypeLimitsNames']},
+        'eplus_name': 'ScheduleTypeLimits',
+        'group': 'schedules'}
 
     @property
     def numeric_type(self):

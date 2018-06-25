@@ -214,7 +214,9 @@ class HVACTemplateZoneIdealLoadsAirSystem(BaseObject):
                             'LimitFlowRateAndCapacity',
                             'NoLimit'],
                         'type': 'string'}}}},
-        'min_fields': 26.0}
+        'min_fields': 26.0,
+        'eplus_name': 'HVACTemplate:Zone:IdealLoadsAirSystem',
+        'group': 'systems'}
 
     @property
     def maximum_heating_supply_air_temperature(self):

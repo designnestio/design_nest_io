@@ -123,7 +123,9 @@ class BuildingSurfaceDetailed(BaseObject):
                                     'Outdoors',
                                     'Surface',
                                     'Zone']}}}},
-        'type': 'object'}
+        'type': 'object',
+        'eplus_name': 'BuildingSurface:Detailed',
+        'group': 'zone'}
 
     @property
     def surface_type(self):

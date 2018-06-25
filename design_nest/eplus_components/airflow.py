@@ -64,7 +64,9 @@ class ZoneInfiltrationDesignFlowRate(BaseObject):
                         'default': 0.0,
                         'type': 'number'}},
                 'type': 'object'}},
-        'type': 'object'}
+        'type': 'object',
+        'eplus_name': 'ZoneInfiltration:DesignFlowRate',
+        'group': 'airflow'}
 
     @property
     def velocity_squared_term_coefficient(self):
@@ -291,7 +293,9 @@ class ZoneVentilationDesignFlowRate(BaseObject):
                         'minimum': 0.0,
                         'type': 'number'}},
                 'type': 'object'}},
-        'type': 'object'}
+        'type': 'object',
+        'eplus_name': 'ZoneVentilation:DesignFlowRate',
+        'group': 'airflow'}
 
     @property
     def delta_temperature_schedule_name(self):

@@ -66,7 +66,9 @@ class Material(BaseObject):
                         'type': 'number',
                         'exclusiveMinimum': True}},
                 'type': 'object'}},
-        'type': 'object'}
+        'type': 'object',
+        'eplus_name': 'Material',
+        'group': 'construction'}
 
     @property
     def density(self):
@@ -179,7 +181,9 @@ class MaterialNoMass(BaseObject):
                             'VeryRough',
                             'VerySmooth']}},
                 'type': 'object'}},
-        'type': 'object'}
+        'type': 'object',
+        'eplus_name': 'Material:NoMass',
+        'group': 'construction'}
 
     @property
     def thermal_absorptance(self):
@@ -242,7 +246,9 @@ class MaterialAirGap(BaseObject):
                         'minimum': 0.0,
                         'type': 'number',
                         'exclusiveMinimum': True}}}},
-        'type': 'object'}
+        'type': 'object',
+        'eplus_name': 'Material:AirGap',
+        'group': 'construction'}
 
     @property
     def thermal_resistance(self):
@@ -290,7 +296,9 @@ class WindowMaterialSimpleGlazingSystem(BaseObject):
                         'maximum': 1.0,
                         'minimum': 0.0,
                         'type': 'number'}}}},
-        'type': 'object'}
+        'type': 'object',
+        'eplus_name': 'WindowMaterial:SimpleGlazingSystem',
+        'group': 'construction'}
 
     @property
     def u_factor(self):
@@ -441,7 +449,9 @@ class WindowMaterialGlazing(BaseObject):
                         'default': 0.9,
                         'minimum': 0.0,
                         'type': 'number'}}}},
-        'type': 'object'}
+        'type': 'object',
+        'eplus_name': 'WindowMaterial:Glazing',
+        'group': 'construction'}
 
     @property
     def front_side_solar_reflectance_at_normal_incidence(self):
@@ -684,7 +694,9 @@ class WindowMaterialGas(BaseObject):
                             'units': 'kg/m-s-K',
                             'type': 'number'}},
                     'type': 'object'}},
-        'type': 'object'}
+        'type': 'object',
+        'eplus_name': 'WindowMaterial:Gas',
+        'group': 'construction'}
 
     @property
     def specific_heat_ratio(self):
@@ -828,7 +840,9 @@ class WindowMaterialGap(BaseObject):
         'name': {
             'is_required': True,
             'type': 'string',
-            'reference': ['CFSGap']}}
+            'reference': ['CFSGap']},
+        'eplus_name': 'WindowMaterial:Gap',
+        'group': 'construction'}
 
     @property
     def pressure(self):
@@ -876,21 +890,58 @@ class WindowMaterialGap(BaseObject):
 class Construction(BaseObject):
     """Corresponds to object `Construction`"""
     _schema = {
-        'type': 'object', 'patternProperties': {
+        'type': 'object',
+        'patternProperties': {
             '.*': {
-                'required': ['outside_layer'], 'type': 'object', 'properties': {
+                'required': ['outside_layer'],
+                'type': 'object',
+                'properties': {
                     'layer_9': {
-                        'object_list': ['MaterialName'], 'type': 'string', 'data_type': 'object_list'}, 'layer_8': {
-                        'object_list': ['MaterialName'], 'type': 'string', 'data_type': 'object_list'}, 'outside_layer': {
-                            'type': 'string', 'object_list': ['MaterialName'], 'data_type': 'object_list'}, 'layer_2': {
-                                'object_list': ['MaterialName'], 'type': 'string', 'data_type': 'object_list'}, 'layer_5': {
-                                    'object_list': ['MaterialName'], 'type': 'string', 'data_type': 'object_list'}, 'layer_4': {
-                                        'object_list': ['MaterialName'], 'type': 'string', 'data_type': 'object_list'}, 'layer_7': {
-                                            'object_list': ['MaterialName'], 'type': 'string', 'data_type': 'object_list'}, 'layer_6': {
-                                                'object_list': ['MaterialName'], 'type': 'string', 'data_type': 'object_list'}, 'layer_10': {
-                                                    'object_list': ['MaterialName'], 'type': 'string', 'data_type': 'object_list'}, 'layer_3': {
-                                                        'object_list': ['MaterialName'], 'type': 'string', 'data_type': 'object_list'}}}}, 'name': {
-                                                            'is_required': True, 'type': 'string', 'reference': ['ConstructionNames']}}
+                        'object_list': ['MaterialName'],
+                        'type': 'string',
+                        'data_type': 'object_list'},
+                    'layer_8': {
+                        'object_list': ['MaterialName'],
+                        'type': 'string',
+                        'data_type': 'object_list'},
+                    'outside_layer': {
+                        'type': 'string',
+                        'object_list': ['MaterialName'],
+                        'data_type': 'object_list'},
+                    'layer_2': {
+                        'object_list': ['MaterialName'],
+                        'type': 'string',
+                        'data_type': 'object_list'},
+                    'layer_5': {
+                        'object_list': ['MaterialName'],
+                        'type': 'string',
+                        'data_type': 'object_list'},
+                    'layer_4': {
+                        'object_list': ['MaterialName'],
+                        'type': 'string',
+                        'data_type': 'object_list'},
+                    'layer_7': {
+                        'object_list': ['MaterialName'],
+                        'type': 'string',
+                        'data_type': 'object_list'},
+                    'layer_6': {
+                        'object_list': ['MaterialName'],
+                        'type': 'string',
+                        'data_type': 'object_list'},
+                    'layer_10': {
+                        'object_list': ['MaterialName'],
+                        'type': 'string',
+                        'data_type': 'object_list'},
+                    'layer_3': {
+                        'object_list': ['MaterialName'],
+                        'type': 'string',
+                        'data_type': 'object_list'}}}},
+        'name': {
+            'is_required': True,
+            'type': 'string',
+            'reference': ['ConstructionNames']},
+        'eplus_name': 'Construction',
+        'group': 'construction'}
 
     @property
     def layer_9(self):

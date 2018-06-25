@@ -167,7 +167,9 @@ class SizingPeriodDesignDay(BaseObject):
         'name': {
             'is_required': True,
             'type': 'string',
-            'reference': ['RunPeriodsAndDesignDays']}}
+            'reference': ['RunPeriodsAndDesignDays']},
+        'eplus_name': 'SizingPeriod:DesignDay',
+        'group': 'climate'}
 
     @property
     def maximum_dry_bulb_temperature(self):
@@ -378,22 +380,64 @@ class SizingPeriodDesignDay(BaseObject):
 class SiteGroundTemperatureBuildingSurface(BaseObject):
     """Corresponds to object `Site:GroundTemperature:BuildingSurface`"""
     _schema = {
-        'format': 'singleLine', 'min_fields': 12.0, 'patternProperties': {
+        'format': 'singleLine',
+        'min_fields': 12.0,
+        'patternProperties': {
             '.*': {
                 'properties': {
                     'october_ground_temperature': {
-                        'units': 'C', 'default': 18.0, 'type': 'number'}, 'july_ground_temperature': {
-                        'units': 'C', 'default': 18.0, 'type': 'number'}, 'may_ground_temperature': {
-                            'units': 'C', 'default': 18.0, 'type': 'number'}, 'august_ground_temperature': {
-                                'units': 'C', 'default': 18.0, 'type': 'number'}, 'march_ground_temperature': {
-                                    'units': 'C', 'default': 18.0, 'type': 'number'}, 'december_ground_temperature': {
-                                        'units': 'C', 'default': 18.0, 'type': 'number'}, 'november_ground_temperature': {
-                                            'units': 'C', 'default': 18.0, 'type': 'number'}, 'april_ground_temperature': {
-                                                'units': 'C', 'default': 18.0, 'type': 'number'}, 'june_ground_temperature': {
-                                                    'units': 'C', 'default': 18.0, 'type': 'number'}, 'january_ground_temperature': {
-                                                        'units': 'C', 'default': 18.0, 'type': 'number'}, 'february_ground_temperature': {
-                                                            'units': 'C', 'default': 18.0, 'type': 'number'}, 'september_ground_temperature': {
-                                                                'units': 'C', 'default': 18.0, 'type': 'number'}}, 'type': 'object'}}, 'maxProperties': 1, 'type': 'object'}
+                        'units': 'C',
+                        'default': 18.0,
+                        'type': 'number'},
+                    'july_ground_temperature': {
+                        'units': 'C',
+                        'default': 18.0,
+                        'type': 'number'},
+                    'may_ground_temperature': {
+                        'units': 'C',
+                        'default': 18.0,
+                        'type': 'number'},
+                    'august_ground_temperature': {
+                        'units': 'C',
+                        'default': 18.0,
+                        'type': 'number'},
+                    'march_ground_temperature': {
+                        'units': 'C',
+                        'default': 18.0,
+                        'type': 'number'},
+                    'december_ground_temperature': {
+                        'units': 'C',
+                        'default': 18.0,
+                        'type': 'number'},
+                    'november_ground_temperature': {
+                        'units': 'C',
+                        'default': 18.0,
+                        'type': 'number'},
+                    'april_ground_temperature': {
+                        'units': 'C',
+                        'default': 18.0,
+                        'type': 'number'},
+                    'june_ground_temperature': {
+                        'units': 'C',
+                        'default': 18.0,
+                        'type': 'number'},
+                    'january_ground_temperature': {
+                        'units': 'C',
+                        'default': 18.0,
+                        'type': 'number'},
+                    'february_ground_temperature': {
+                        'units': 'C',
+                        'default': 18.0,
+                        'type': 'number'},
+                    'september_ground_temperature': {
+                        'units': 'C',
+                        'default': 18.0,
+                        'type': 'number'}},
+                'type': 'object'}},
+        'maxProperties': 1,
+        'type': 'object',
+        'eplus_name': 'Site:GroundTemperature:BuildingSurface',
+        'group': 'climate'}
 
     @property
     def october_ground_temperature(self):

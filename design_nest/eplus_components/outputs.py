@@ -16,7 +16,9 @@ class OutputSQLite(BaseObject):
                             'Simple',
                             'SimpleAndTabular'],
                         'type': 'string'}}}},
-        'maxProperties': 1}
+        'maxProperties': 1,
+        'eplus_name': 'Output:SQLite',
+        'group': 'outputs'}
 
     @property
     def option_type(self):
@@ -45,7 +47,9 @@ class OutputTableSummaryReports(BaseObject):
                                     'type': 'string'}}},
                         'type': 'array'}}}},
         'maxProperties': 1,
-        'type': 'object'}
+        'type': 'object',
+        'eplus_name': 'Output:Table:SummaryReports',
+        'group': 'outputs'}
 
     @property
     def reports(self):

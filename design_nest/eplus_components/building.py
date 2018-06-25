@@ -40,7 +40,9 @@ class SiteLocation(BaseObject):
                 'type': 'object'}},
         'maxProperties': 1,
         'type': 'object',
-        'min_fields': 5.0}
+        'min_fields': 5.0,
+        'eplus_name': 'Site:Location',
+        'group': 'building'}
 
     @property
     def latitude(self):
@@ -138,7 +140,9 @@ class Building(BaseObject):
         'maxProperties': 1,
         'minProperties': 1,
         'type': 'object',
-        'min_fields': 8.0}
+        'min_fields': 8.0,
+        'eplus_name': 'Building',
+        'group': 'building'}
 
     @property
     def solar_distribution(self):
