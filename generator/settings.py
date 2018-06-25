@@ -1,7 +1,7 @@
 class Settings:
 
     info = {
-        "version": "0.1.0",
+        "version": "0.2.0",
         "description": "Python library which allows to read, modify, create and run EnergyPlus files and simulations."
     }
 
