@@ -1,7 +1,7 @@
 import json
 
 
-class Model:
+class Model(object):
     """ Represents an E+ epJSON file """
 
     required_objects = [{{required_objects}}]
@@ -15,14 +15,13 @@ class Model:
             self.load(path)
 
     def add(self, obj):
-        group = obj.schema['group']
-        name = obj.schema['name']
-        if name not in self._model[group]:
-            self._model[group][name] = []
-        if name in self.unique_objects:
-            self._model[group][name] = [obj]
-        else:
-            self._model[group][name].append(obj)
+        class_name = obj.schema['eplus_name']
+        if class_name not in self._model:
+            self._model[class_name] = {}
+        if obj.name not in self._model[class_name]:
+            self._model[class_name][obj.name] = {}
+
+        self._model[class_name][obj.name] = obj.__dict__['_data']
 
     def save(self, path):
         """ Save epJSON to path.
