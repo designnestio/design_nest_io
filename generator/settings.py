@@ -7,12 +7,12 @@ class Settings:
 
     groups = {
         'simulation_parameters': [
+            'Timestep',
             'Version',
             'SimulationControl',
             'ShadowCalculations',
             'SurfaceConvectionAlgorithm:Outside',
             'SurfaceConvectionAlgorithm:Inside'
-            'TimeStep',
             'GlobalGeometryRules',
             'HeatBalanceAlgorithm'
         ],
@@ -50,7 +50,6 @@ class Settings:
             'People',
             'Lights',
             'ElectricEquipment',
-
         ],
         'airflow': [
             'ZoneInfiltration:DesignFlowRate',
