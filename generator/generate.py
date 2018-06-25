@@ -49,11 +49,13 @@ if __name__ == '__main__':
         objects = []
         for obj in Settings.groups[group]:
             if obj in schema['properties']:
+                obj_schema = schema['properties'][obj]
+                obj_schema.update({'eplus_name': obj, 'group': group})
                 d = {
                     'class_name': obj.replace(":", ""),
                     'eplus_name': obj,
                     'group': group,
-                    'schema': schema['properties'][obj],
+                    'schema': obj_schema,
                     'fields': [prop for prop in schema['properties'][obj]['patternProperties']['.*']['properties']]
                 }
                 objects.append(d)
@@ -68,3 +70,7 @@ if __name__ == '__main__':
     init_source = env.get_template('__init__.py').render(Settings.info)
     with open('../design_nest/__init__.py', 'w') as f:
         f.write(init_source)
+
+    model_source = env.get_template('model.py').render()
+    with open("../design_nest/eplus_components/model.py", 'w') as f:
+        f.write(model_source)
